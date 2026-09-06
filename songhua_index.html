@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Songhua Yang | 杨松桦</title>
+<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: #2c2c2c; background: #fafbfc; line-height: 1.7; font-size: 15px;
+}
+a { color: #1a5276; text-decoration: none; transition: color 0.2s; }
+a:hover { color: #c0392b; text-decoration: underline; }
+
+.nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.92); backdrop-filter: blur(10px); border-bottom: 1px solid #e8e8e8; }
+.nav-inner { max-width: 1100px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; height: 52px; gap: 28px; }
+.nav-brand { font-family: 'Noto Serif SC', serif; font-weight: 700; font-size: 17px; color: #1a3a5c; letter-spacing: 0.5px; }
+.nav-links { display: flex; gap: 24px; list-style: none; margin-left: auto; }
+.nav-links a { font-size: 14px; font-weight: 500; color: #555; text-decoration: none; padding: 4px 0; border-bottom: 2px solid transparent; transition: all 0.2s; }
+.nav-links a:hover { color: #1a3a5c; border-bottom-color: #1a3a5c; }
+
+.container { max-width: 1100px; margin: 0 auto; padding: 40px 24px 60px; }
+.layout { display: grid; grid-template-columns: 230px 1fr; gap: 40px; align-items: start; }
+
+.sidebar { position: sticky; top: 80px; text-align: center; }
+.avatar-wrap { width: 160px; aspect-ratio: 1; border-radius: 6px; overflow: hidden; border: 1px solid #e0e0e0; margin: 0 auto 14px; background: #f0f0f0; }
+.avatar-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.sidebar-name { font-family: 'Noto Serif SC', serif; font-size: 19px; font-weight: 700; color: #1a3a5c; line-height: 1.3; margin-bottom: 1px; }
+.sidebar-name-cn { font-size: 12px; color: #666; font-weight: 400; margin-bottom: 8px; }
+.sidebar-title { font-size: 13px; color: #444; line-height: 1.5; margin-bottom: 2px; }
+.sidebar-affil { font-size: 12px; color: #777; line-height: 1.5; margin-bottom: 10px; }
+.sidebar-contact { font-size: 12px; color: #555; line-height: 1.7; border-top: 1px solid #eee; border-bottom: 1px solid #eee; padding: 10px 0; margin-bottom: 10px; text-align: left; }
+.sidebar-contact .row { display: flex; align-items: baseline; gap: 6px; }
+.sidebar-contact .label { color: #999; flex-shrink: 0; width: 52px; font-size: 11px; }
+.sidebar-contact .value { font-size: 12px; word-break: break-all; }
+.sidebar-social { display: flex; flex-wrap: wrap; gap: 5px; justify-content: center; }
+.sidebar-social a { font-size: 11px; padding: 3px 8px; border: 1px solid #d0d0d0; border-radius: 3px; color: #555; text-decoration: none; transition: all 0.2s; background: #fff; }
+.sidebar-social a:hover { border-color: #1a3a5c; color: #1a3a5c; background: #f5f8fa; }
+
+.content section { margin-bottom: 48px; }
+.section-title { font-family: 'Noto Serif SC', serif; font-size: 22px; font-weight: 700; color: #1a3a5c; padding-bottom: 10px; border-bottom: 2px solid #1a3a5c; margin-bottom: 24px; letter-spacing: 0.5px; }
+
+.about-text p { margin-bottom: 14px; text-align: justify; }
+.about-text strong { color: #1a3a5c; font-weight: 600; }
+.interests { margin-top: 18px; padding: 16px 20px; background: #f5f8fa; border-left: 3px solid #1a3a5c; border-radius: 0 4px 4px 0; }
+.interests-label { font-size: 13px; font-weight: 600; color: #1a3a5c; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; }
+.interests-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.interests-tags span { font-size: 13px; padding: 3px 12px; background: #fff; border: 1px solid #d8e2ec; border-radius: 20px; color: #3a5a7c; }
+
+.news-list { list-style: none; }
+.news-list li { display: flex; gap: 14px; padding: 8px 0; border-bottom: 1px dashed #e8e8e8; font-size: 14px; }
+.news-list li:last-child { border-bottom: none; }
+.news-date { flex-shrink: 0; width: 72px; font-family: 'Noto Serif SC', serif; font-weight: 600; color: #1a3a5c; font-size: 13px; }
+.news-content { color: #444; }
+.news-content strong { color: #c0392b; font-weight: 600; }
+
+.pub-item { padding: 13px 0; border-bottom: 1px solid #f0f0f0; }
+.pub-item:last-child { border-bottom: none; }
+.pub-title { font-size: 14.5px; font-weight: 600; color: #222; margin-bottom: 3px; line-height: 1.5; }
+.pub-title a { color: #222; text-decoration: none; }
+.pub-title a:hover { color: #1a5276; text-decoration: underline; }
+.pub-authors { font-size: 13px; color: #666; margin-bottom: 3px; }
+.pub-authors .me { font-weight: 700; color: #1a3a5c; }
+.pub-venue { font-size: 13px; color: #888; font-style: italic; }
+.pub-tags { display: inline-flex; gap: 6px; margin-left: 8px; }
+.pub-tag { font-size: 11px; font-style: normal; padding: 1px 8px; border-radius: 3px; font-weight: 500; vertical-align: middle; }
+.pub-tag.conf { background: #e8f0fe; color: #1a56db; }
+.pub-tag.journal { background: #fef3e2; color: #b45309; }
+.pub-tag.arxiv { background: #f0f0f0; color: #666; }
+.pub-tag.accepted { background: #dcfce7; color: #166534; }
+
+.honors-list { list-style: none; }
+.honors-list li { display: flex; gap: 16px; padding: 11px 0; border-bottom: 1px solid #f0f0f0; align-items: baseline; }
+.honors-list li:last-child { border-bottom: none; }
+.honor-year { flex-shrink: 0; width: 70px; font-family: 'Noto Serif SC', serif; font-weight: 700; font-size: 15px; color: #c0392b; }
+.honor-content { font-size: 14px; color: #333; }
+.honor-content .level { font-weight: 600; color: #1a3a5c; }
+
+.timeline-list { list-style: none; position: relative; padding-left: 24px; }
+.timeline-list::before { content: ''; position: absolute; left: 6px; top: 6px; bottom: 6px; width: 2px; background: #d8e2ec; }
+.timeline-list li { position: relative; padding-bottom: 20px; }
+.timeline-list li:last-child { padding-bottom: 0; }
+.timeline-list li::before { content: ''; position: absolute; left: -22px; top: 7px; width: 10px; height: 10px; border-radius: 50%; background: #1a3a5c; border: 2px solid #fff; box-shadow: 0 0 0 2px #1a3a5c; }
+.timeline-period { font-size: 13px; color: #888; font-family: 'Noto Serif SC', serif; margin-bottom: 2px; }
+.timeline-title { font-size: 15px; font-weight: 600; color: #222; margin-bottom: 2px; }
+.timeline-desc { font-size: 13px; color: #666; }
+
+.service-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.service-card { padding: 16px 18px; background: #fff; border: 1px solid #e8e8e8; border-radius: 6px; }
+.service-card h4 { font-size: 14px; font-weight: 600; color: #1a3a5c; margin-bottom: 8px; }
+.service-card p { font-size: 13px; color: #666; line-height: 1.6; }
+
+.footer { text-align: center; padding: 30px 0 10px; font-size: 12px; color: #aaa; border-top: 1px solid #eee; margin-top: 20px; }
+.footer a { color: #999; }
+
+@media (max-width: 860px) {
+  .layout { grid-template-columns: 1fr; gap: 32px; }
+  .sidebar { position: static; text-align: center; }
+  .avatar-wrap { max-width: 150px; margin: 0 auto 14px; }
+  .sidebar-contact { text-align: left; max-width: 280px; margin-left: auto; margin-right: auto; }
+  .nav-links { gap: 14px; }
+  .nav-links a { font-size: 13px; }
+  .service-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <span class="nav-brand">Songhua Yang · 杨松桦</span>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#news">News</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#honors">Honors</a></li>
+      <li><a href="#experience">Experience</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+<div class="layout">
+
+  <aside class="sidebar">
+    <div class="avatar-wrap">
+      <img src="https://aka.doubaocdn.com/s/uFmVAIIGhk" alt="Songhua Yang">
+    </div>
+    <div class="sidebar-name">Songhua Yang</div>
+    <div class="sidebar-name-cn">杨松桦</div>
+    <div class="sidebar-title">Ph.D. Candidate</div>
+    <div class="sidebar-affil">
+      School of Robotics<br>
+      Wuhan University (武汉大学)<br>
+      Wuhan, China
+    </div>
+    <div class="sidebar-contact">
+      <div class="row">
+        <span class="label">Advisor</span>
+        <span class="value">Prof. Sheng Liu / Prof. Miao Li</span>
+      </div>
+      <div class="row">
+        <span class="label">Email</span>
+        <span class="value"><a href="mailto:suprit@foxmail.com">suprit@foxmail.com</a></span>
+      </div>
+    </div>
+    <div class="sidebar-social">
+      <a href="https://scholar.google.com/citations?user=uGBdAbgAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+      <a href="https://github.com/SupritYoung" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.zhihu.com/people/tou-kao-liao-sui-yue" target="_blank" rel="noopener">知乎 Zhihu</a>
+      <a href="https://www.xiaohongshu.com/user/profile/602f9d76000000000101cfa7" target="_blank" rel="noopener">小红书 RED</a>
+      <a href="https://www.douyin.com/user/MS4wLjABAAAAoK3kfWgXf0p-AI-gkvQ5UV9EC3XJOVWNAJ6lMvsH82U?from_tab_name=main" target="_blank" rel="noopener">抖音 Douyin</a>
+    </div>
+  </aside>
+
+  <div class="content">
+
+    <section id="about">
+      <h2 class="section-title">About Me</h2>
+      <div class="about-text">
+        <p>
+          I am a <strong>Ph.D. candidate</strong> at the <strong>School of Robotics, Wuhan University</strong>, advised by <strong>Academician Sheng Liu</strong> and <strong>Prof. Miao Li</strong>. My research lies at the intersection of <strong>Embodied AI</strong> and <strong>Large Language Models</strong>, with a focus on <strong>Vision-Language-Action (VLA) models</strong> and <strong>Whole-Body Action Models (WAM)</strong>.
+        </p>
+        <p>
+          In particular, I am deeply interested in <strong>self-evolving in-context learning for embodied AI</strong> — enabling robots to continuously adapt and improve through interaction experience without explicit retraining. This thread runs through my work on robot manipulation, dexterous grasping, and human-robot interaction.
+        </p>
+        <p>
+          Beyond academia, I previously served as an <strong>Algorithm Architect at Zhipu AI</strong> (智谱AI) and an <strong>Algorithm Engineer at Huawei Automotive BU</strong> (华为车BU). I am also a <strong>drafting member of the Chinese National Standard for Humanoid Robot Datasets</strong>, and an expert consultant for the Hubei Humanoid Robot Center.
+        </p>
+        <p>
+          As the project lead of <strong>"Tianwen Robot: Pioneer of Service-oriented Embodied Foundation Models"</strong> (天问机器人), I led the team to win the <strong>Gold Award in the Industry Track at the China International College Students' Innovation Competition (2025) National Finals</strong>.
+        </p>
+        <div class="interests">
+          <div class="interests-label">Research Interests</div>
+          <div class="interests-tags">
+            <span>Embodied AI</span>
+            <span>Large Language Model</span>
+            <span>Vision-Language-Action (VLA)</span>
+            <span>Whole-Body Action Model (WAM)</span>
+            <span>Self-Evolving In-Context Learning</span>
+            <span>Robot Manipulation</span>
+            <span>Dexterous Grasping</span>
+            <span>Medical Informatics</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="news">
+      <h2 class="section-title">News</h2>
+      <ul class="news-list">
+        <li>
+          <span class="news-date">2026</span>
+          <span class="news-content">🎉 <strong>3 papers</strong> accepted by <strong>ICRA 2026</strong> (IEEE Int. Conf. Robotics and Automation).</span>
+        </li>
+        <li>
+          <span class="news-date">2026</span>
+          <span class="news-content">🎉 <strong>1 paper</strong> accepted by <strong>IROS 2026</strong> (IEEE/RSJ Int. Conf. Intelligent Robots and Systems).</span>
+        </li>
+        <li>
+          <span class="news-date">2026</span>
+          <span class="news-content">🎉 <strong>2 papers</strong> accepted by <strong>AAAI 2026</strong> (AAAI Conf. Artificial Intelligence).</span>
+        </li>
+        <li>
+          <span class="news-date">2025.10</span>
+          <span class="news-content">🏆 "Tianwen Robot" won <strong>Gold Award</strong> at CISCIC (2025) National Finals, Industry Track.</span>
+        </li>
+        <li>
+          <span class="news-date">2025.07</span>
+          <span class="news-content">🏆 "Tianwen Robot" won <strong>Champion</strong> at Hubei Regional, Graduate Innovation Group; <strong>Runner-up</strong> in Championship Round.</span>
+        </li>
+        <li>
+          <span class="news-date">2024.02</span>
+          <span class="news-content">📝 Paper <em>Zhongjing</em> accepted by <strong>AAAI 2024</strong>.</span>
+        </li>
+        <li>
+          <span class="news-date">2024</span>
+          <span class="news-content">📜 Serving as <strong>drafting member</strong> of the Chinese National Standard for Humanoid Robot Datasets.</span>
+        </li>
+      </ul>
+    </section>
+
+    <section id="publications">
+      <h2 class="section-title">Publications</h2>
+
+      <!-- 2026 -->
+      <div class="pub-item">
+        <div class="pub-title">
+          <a href="https://arxiv.org/abs/2602.03153" target="_blank" rel="noopener">When Attention Betrays: Erasing Backdoor Attacks in Robotic Policies by Reconstructing Visual Tokens (Bera)</a>
+        </div>
+        <div class="pub-authors">Xuetao Li, Pinhan Fu, Wenke Huang, Nengyuan Pan, <span class="me">Songhua Yang</span>, Kaiyan Zhao, Guancheng Wan, Mengde Li, Jifeng Xuan, Miao Li</div>
+        <div class="pub-venue">
+          arXiv preprint arXiv:2602.03153, 2026
+          <span class="pub-tags"><span class="pub-tag accepted">ICRA 2026 Accepted</span></span>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title">
+          <a href="https://scholar.google.com/citations?user=uGBdAbgAAAAJ" target="_blank" rel="noopener">Exploiting Vulnerabilities: Universal Adversarial Attacks on Vision-Language-Action Models in Robotics</a>
+        </div>
+        <div class="pub-authors"><span class="me">Songhua Yang</span>, et al.</div>
+        <div class="pub-venue">
+          IEEE International Conference on Robotics and Automation, 2026
+          <span class="pub-tags"><span class="pub-tag conf">ICRA 2026</span></span>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title">
+          <a href="https://scholar.google.com/citations?user=uGBdAbgAAAAJ" target="_blank" rel="noopener">DexKP-VLA: A Dexterous Keypoint Vision-Language-Action Framework for Zero-shot Grasping</a>
+        </div>
+        <div class="pub-authors"><span class="me">Songhua Yang</span>, et al.</div>
+        <div class="pub-venue">
+          IEEE/RSJ International Conference on Intelligent Robots and Systems, 2026
+          <span class="pub-tags"><span class="pub-tag conf">IROS 2026</span></span>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title">
+          <a href="https://ojs.aaai.org/index.php/AAAI/article/view/38539" target="_blank" rel="noopener">RGMP: Recurrent Geometric-prior Multimodal Policy for Generalizable Humanoid Robot Manipulation</a>
+        </div>
+        <div class="pub-authors">Xuetao Li, Wenke Huang, Nengyuan Pan, Kaiyan Zhao, <span class="me">Songhua Yang</span>, Yiming Wang, Mengde Li, Mang Ye, Jifeng Xuan, Miao Li</div>
+        <div class="pub-venue">
+          Proceedings of the AAAI Conference on Artificial Intelligence 40(18), 2026
+          <span class="pub-tags"><span class="pub-tag conf">AAAI 2026</span></span>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title">
+          <a href="https://arxiv.org/abs/2602.07434" target="_blank" rel="noopener">Bridging Speech, Emotion, and Motion: a VLM-based Multimodal Edge-deployable Framework for Humanoid Robots (SeM²)</a>
+        </div>
+        <div class="pub-authors"><span class="me">Songhua Yang</span>, Xuetao Li, Xuanye Fei, Mengde Li, Miao Li</div>
+        <div class="pub-venue">
+          arXiv preprint arXiv:2602.07434, 2026
+          <span class="pub-tags"><span class="pub-tag arxiv">arXiv</span></span>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title">
+          <a href="https://scholar.google.com/citations?user=uGBdAbgAAAAJ" target="_blank" rel="noopener">[Paper in IEEE Internet of Things Journal]</a>
+        </div>
+        <div class="pub-authors">Z. Li, <span class="me">Songhua Yang</span></div>
+        <div class="pub-venue">
+          IEEE Internet of Things Journal, 2026 (IF 8.7)
+          <span class="pub-tags"><span class="pub-tag journal">IEEE IoT-J</span></span>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title">
+          <a href="https://mednexus.org/doi/10.1016/j.imed.2025.03.004" target="_blank" rel="noopener">CRC-BERT-GCN: Development and validation of a pre-trained language model for predicting colorectal cancer phenotypes from radiology reports and electronic health records</a>
+        </div>
+        <div class="pub-authors">Jia Li, Xinghao Wang, Fanxin Zeng, Zhixiang Wang, Linkun Cai, Shui Liu, <span class="me">Songhua Yang</span>, Xinke Jiang, Yuyi Li, Han Lyu, Wenjuan Liu, et al.</div>
+        <div class="pub-venue">
+          Intelligent Medicine 6(03), 301-312, 2026 (IF 7.8)
+          <span class="pub-tags"><span class="pub-tag journal">Intelligent Medicine</span></span>
+        </div>
+      </div>
+
+      <!-- 2024 -->
+      <div class="pub-item">
+        <div class="pub-title">
+          <a href="https://scholar.google.com/citations?user=uGBdAbgAAAAJ" target="_blank" rel="noopener">Learning Robust Grasping Strategy Through Tactile Sensing and Adaption Skill</a>
+        </div>
+        <div class="pub-authors">Y. Hu, M. Li, <span class="me">Songhua Yang</span>, X. Li, S. Liu, M. Li</div>
+        <div class="pub-venue">
+          2024 IEEE International Conference on Robotics and Biomimetics (ROBIO), 1197, 2024
+          <span class="pub-tags"><span class="pub-tag conf">ROBIO 2024</span></span>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title">
+          <a href="https://scholar.google.com/citations?user=uGBdAbgAAAAJ" target="_blank" rel="noopener">Zhongjing: Enhancing the Chinese Medical Capabilities of Large Language Model through Expert Feedback and Real-world Multi-turn Dialogue</a>
+        </div>
+        <div class="pub-authors"><span class="me">Songhua Yang</span>, H. Zhao, S. Zhu, G. Zhou, H. Xu, Y. Jia, H. Zan</div>
+        <div class="pub-venue">
+          Proceedings of the AAAI Conference on Artificial Intelligence 38(17), 19368, 2024
+          <span class="pub-tags"><span class="pub-tag conf">AAAI 2024</span></span>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title">
+          <a href="https://scholar.google.com/citations?user=uGBdAbgAAAAJ" target="_blank" rel="noopener">Knowledge-injected Prompt Learning for Chinese Biomedical Entity Normalization</a>
+        </div>
+        <div class="pub-authors"><span class="me">Songhua Yang</span>, C. Zhang, C. He, H. Xu, H. Zan, Y. Jia</div>
+        <div class="pub-venue">
+          ACM Transactions on Asian and Low-Resource Language Information Processing, 2024
+          <span class="pub-tags"><span class="pub-tag journal">ACM TALLIP</span></span>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title">
+          <a href="https://scholar.google.com/citations?user=uGBdAbgAAAAJ" target="_blank" rel="noopener">FAIMA: Feature-aware In-context Learning for Multi-domain Aspect-based Sentiment Analysis</a>
+        </div>
+        <div class="pub-authors"><span class="me">Songhua Yang</span>, X. Jiang, H. Zhao, W. Zeng, H. Liu, Y. Jia</div>
+        <div class="pub-venue">
+          Proceedings of the 2024 Joint International Conference on Computational Linguistics, 2024
+          <span class="pub-tags"><span class="pub-tag conf">COLING 2024</span></span>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title">
+          <a href="https://scholar.google.com/citations?user=uGBdAbgAAAAJ" target="_blank" rel="noopener">Kuaiji: The First Chinese Accounting Large Language Model</a>
+        </div>
+        <div class="pub-authors">J. Luo, <span class="me">Songhua Yang</span>, X. Qiu, P. Chen, Y. Nai, W. Zeng, W. Zhang, X. Jiang</div>
+        <div class="pub-venue">
+          arXiv preprint arXiv:2402.13866, 2024
+          <span class="pub-tags"><span class="pub-tag arxiv">arXiv</span></span>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title">
+          <a href="https://scholar.google.com/citations?user=uGBdAbgAAAAJ" target="_blank" rel="noopener">LLM-detector: Improving AI-generated Chinese Text Detection with Open-source LLM Instruction Tuning</a>
+        </div>
+        <div class="pub-authors">R. Wang, H. Chen, R. Zhou, H. Ma, Y. Duan, Y. Kang, <span class="me">Songhua Yang</span>, B. Fan, T. Tan</div>
+        <div class="pub-venue">
+          arXiv preprint arXiv:2402.01158, 2024
+          <span class="pub-tags"><span class="pub-tag arxiv">arXiv</span></span>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title">
+          <a href="https://scholar.google.com/citations?user=uGBdAbgAAAAJ" target="_blank" rel="noopener">AIGC-Empowered Activation of Traditional Chinese Medicine Classics: Construction of the Huang-Di Large Language Model (AIGC 赋能中医古籍活化：Huang-Di 大模型的构建)</a>
+        </div>
+        <div class="pub-authors">J. Zhang, <span class="me">Songhua Yang</span>, J. Liu, Q. Huang</div>
+        <div class="pub-venue">
+          Library Tribune (图书馆论坛) 44(10), 103-112, 2024
+          <span class="pub-tags"><span class="pub-tag journal">CSSCI</span></span>
+        </div>
+      </div>
+
+      <!-- 2023 -->
+      <div class="pub-item">
+        <div class="pub-title">
+          <a href="https://scholar.google.com/citations?user=uGBdAbgAAAAJ" target="_blank" rel="noopener">Construction of Medical Knowledge Graph and Drug Prediction Research Across Medical Systems: A Case Study of Atherosclerosis (跨医学体系下医疗知识图谱的构建与药物预测研究——以动脉粥样硬化为例)</a>
+        </div>
+        <div class="pub-authors">J. Liu, Q. Huang, J. Zhang, <span class="me">Songhua Yang</span>, Y. Yan, N. Li</div>
+        <div class="pub-venue">
+          Information Studies: Theory &amp; Application (情报理论与实践), 2023
+          <span class="pub-tags"><span class="pub-tag journal">CSSCI</span></span>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title">
+          <a href="https://scholar.google.com/citations?user=uGBdAbgAAAAJ" target="_blank" rel="noopener">Improving Aspect Sentiment Triplet Extraction with Perturbed Masking and Edge-enhanced Sentiment Graph Attention Network</a>
+        </div>
+        <div class="pub-authors"><span class="me">Songhua Yang</span>, T. Zhang, H. Xu, Y. Jia</div>
+        <div class="pub-venue">
+          2023 International Joint Conference on Neural Networks (IJCNN), 1-8, 2023
+          <span class="pub-tags"><span class="pub-tag conf">IJCNN 2023</span></span>
+        </div>
+      </div>
+
+      <!-- 2022 -->
+      <div class="pub-item">
+        <div class="pub-title">
+          <a href="https://scholar.google.com/citations?user=uGBdAbgAAAAJ" target="_blank" rel="noopener">Aspect-based Sentiment Analysis with Dependency Relation Graph Convolutional Network</a>
+        </div>
+        <div class="pub-authors">Y. Wang, C. Liu, J. Xie, <span class="me">Songhua Yang</span>, Y. Jia, H. Zan</div>
+        <div class="pub-venue">
+          2022 International Conference on Asian Language Processing (IALP), 63-68, 2022
+          <span class="pub-tags"><span class="pub-tag conf">IALP 2022</span></span>
+        </div>
+      </div>
+
+      <!-- 2021 -->
+      <div class="pub-item">
+        <div class="pub-title">
+          <a href="https://scholar.google.com/citations?user=uGBdAbgAAAAJ" target="_blank" rel="noopener">Machine Learning-based Radiomics Nomogram for Detecting Extramural Venous Invasion in Rectal Cancer</a>
+        </div>
+        <div class="pub-authors">S. Liu, X. Yu, <span class="me">Songhua Yang</span>, P. Hu, Y. Hu, X. Chen, Y. Li, Z. Zhang, C. Li, Q. Lu</div>
+        <div class="pub-venue">
+          Frontiers in Oncology 11, 610338, 2021
+          <span class="pub-tags"><span class="pub-tag journal">Frontiers</span></span>
+        </div>
+      </div>
+
+    </section>
+
+    <section id="honors">
+      <h2 class="section-title">Honors &amp; Awards</h2>
+      <ul class="honors-list">
+        <li>
+          <span class="honor-year">2025</span>
+          <span class="honor-content">
+            <span class="level">China International College Students' Innovation Competition (2025) National Finals — Gold Award, Industry Track</span><br>
+            Project Lead, "Tianwen Robot: Pioneer of Service-oriented Embodied Foundation Models"
+          </span>
+        </li>
+        <li>
+          <span class="honor-year">2025</span>
+          <span class="honor-content">
+            <span class="level">China International College Students' Innovation Competition (2025) Hubei Regional — Champion, Graduate Innovation Group</span><br>
+            Project Lead, "Tianwen Robot"
+          </span>
+        </li>
+        <li>
+          <span class="honor-year">2025</span>
+          <span class="honor-content">
+            <span class="level">China International College Students' Innovation Competition (2025) Hubei Championship Round — Runner-up</span><br>
+            Project Lead
+          </span>
+        </li>
+        <li>
+          <span class="honor-year">2024</span>
+          <span class="honor-content">
+            <span class="level">Drafting Member, Chinese National Standard for Humanoid Robot Datasets</span><br>
+            National Technical Committee on Robot Standardization (TC591), Humanoid Robot Subcommittee
+          </span>
+        </li>
+        <li>
+          <span class="honor-year">2023.09</span>
+          <span class="honor-content">
+            <span class="level">Kaggle — LLM Science Exam, Bronze Medal</span>
+          </span>
+        </li>
+        <li>
+          <span class="honor-year">2019.10</span>
+          <span class="honor-content">
+            <span class="level">ACM ICPC Asia Regional Contest, East Asia — Bronze Medal</span>
+          </span>
+        </li>
+        <li>
+          <span class="honor-year">2019.05</span>
+          <span class="honor-content">
+            <span class="level">China Collegiate Programming Contest (CCPC) National Invitational — National Bronze Medal</span>
+          </span>
+        </li>
+      </ul>
+    </section>
+
+    <section id="experience">
+      <h2 class="section-title">Experience &amp; Service</h2>
+      <ul class="timeline-list">
+        <li>
+          <div class="timeline-period">Former Algorithm Architect</div>
+          <div class="timeline-title">Zhipu AI (智谱AI)</div>
+          <div class="timeline-desc">Large language model algorithm architecture design and research</div>
+        </li>
+        <li>
+          <div class="timeline-period">Former Algorithm Engineer</div>
+          <div class="timeline-title">Huawei Automotive BU (华为车BU)</div>
+          <div class="timeline-desc">Algorithm research and development for intelligent driving systems</div>
+        </li>
+        <li>
+          <div class="timeline-period">Expert Consultant</div>
+          <div class="timeline-title">Hubei Humanoid Robot Center</div>
+          <div class="timeline-desc">Technical and industrial advisory on humanoid robot development</div>
+        </li>
+      </ul>
+
+      <div style="margin-top: 28px;">
+        <div class="service-grid">
+          <div class="service-card">
+            <h4>National Standard Drafting</h4>
+            <p>Drafting member of the Chinese National Standard series for Humanoid Robot Datasets, under the National Technical Committee on Robot Standardization (TC591), covering core data standards including human-robot interaction.</p>
+          </div>
+          <div class="service-card">
+            <h4>Technology Transfer</h4>
+            <p>The Tianwen Robot project has established partnerships with Black Sesame Technologies, Huawei, and Nanshan Zhishang. The Xiaogan municipal government has invested in a production line to drive the robotics industry in central China.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">
+      <p>&copy; 2026 Songhua Yang &middot; 杨松桦. All rights reserved.</p>
+      <p style="margin-top:4px;">Template inspired by <a href="https://github.com/RayeRen/acad-homepage.github.io" target="_blank" rel="noopener">AcadHomepage</a> &middot; Last updated: Sep 2026</p>
+    </div>
+
+  </div>
+</div>
+</div>
+
+</body>
+</html>
